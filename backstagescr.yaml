@@ -1,0 +1,16 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: backstage-postgresql
+  namespace: backstage
+  labels:
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-12.10.0
+  annotations:
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: backstage
+data:
+  postgres-password: dGRxcG9XbmVhUA==
+type: Opaque
