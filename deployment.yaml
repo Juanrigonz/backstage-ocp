@@ -1,0 +1,95 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: backstage
+  name: backstage
+  namespace: backstage
+  labels:
+    app.kubernetes.io/component: backstage
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: backstage-2.3.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: backstage
+      app.kubernetes.io/instance: backstage
+      app.kubernetes.io/name: backstage
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: backstage
+        app.kubernetes.io/instance: backstage
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.3.0
+      annotations:
+        checksum/app-config: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: backstage-backend
+          command:
+            - node
+            - packages/backend
+          env:
+            - name: APP_CONFIG_backend_listen_port
+              value: '7007'
+            - name: POSTGRES_HOST
+              value: backstage-postgresql
+            - name: POSTGRES_PORT
+              value: '5432'
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+            - name: APP_CONFIG_app_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_cors_origin
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_database_client
+              value: pg
+            - name: APP_CONFIG_backend_database_connection_host
+              value: backstage-postgresql
+            - name: APP_CONFIG_backend_database_connection_port
+              value: '5432'
+            - name: APP_CONFIG_backend_database_connection_user
+              value: postgres
+            - name: APP_CONFIG_backend_database_connection_password
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+          ports:
+            - name: backend
+              containerPort: 7007
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: 'ghcr.io/janus-idp/redhat-backstage-build:latest'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: default
+      serviceAccount: default
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
