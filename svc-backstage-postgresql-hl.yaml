@@ -1,0 +1,38 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backstage-postgresql-hl
+  namespace: backstage
+  uid: 2d6d33ee-5c61-42a2-bce6-8f9f83955747
+  resourceVersion: '514773'
+  creationTimestamp: '2025-01-26T03:00:03Z'
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-12.10.0
+  annotations:
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: default
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: 'true'
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: tcp-postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: tcp-postgresql
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - None
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/name: postgresql
