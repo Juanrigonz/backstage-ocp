@@ -1,0 +1,17 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: backstage
+  namespace: backstage
+  labels:
+    app.kubernetes.io/component: backstage
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: backstage
+    serviceaccounts.openshift.io/oauth-redirecturi.backstage: 'https://backstage-ocp.apps-crc.testing/oauth/callback'
+secrets:
+  - name: backstage-dockercfg-ptv86
+imagePullSecrets:
+  - name: backstage-dockercfg-ptv86
+automountServiceAccountToken: true

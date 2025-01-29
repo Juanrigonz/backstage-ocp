@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Backstage-component
+  description: An example of a Backstage application.
+  # Example for optional annotations
+  # annotations:
+  #   github.com/project-slug: backstage/backstage
+  #   backstage.io/techdocs-ref: dir:.
+  annotations:
+   # jenkins.io/job-full-name: 'backstage'    
+  # instanceName and github-organization-project-name are optional. The value is a string and should be enclosed in double quotes ""    
+    
+spec:
+  type: website
+  owner: john@example.com
+  lifecycle: experimental

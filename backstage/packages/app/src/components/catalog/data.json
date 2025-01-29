@@ -1,0 +1,45 @@
+[
+    {
+      "title": "OPENSHIFT CLUSTERS",
+      "isExpanded": true,
+      "links": [
+        {
+          "id": 1, 
+          "iconUrl": "/homepage/icons/icons8/openshift.png",
+          "label": "OpenShift Desarrollo",
+          "url": "https://console-openshift-console.apps.chi01.chi.dev.cl1.paas.cloudcenter.corp/"
+        },
+        {
+          "id": 2, 
+          "iconUrl": "/homepage/icons/icons8/openshift.png",
+          "label": "OpenShift Integración CL1",
+          "url": "https://console-openshift-console.apps.chi01.chi.pre.cl1.paas.cloudcenter.corp/"
+        },
+        {
+          "id": 3, 
+          "iconUrl": "/homepage/icons/icons8/openshift.png",
+          "label": "OpenShift Integración CL2",
+          "url": "https://console-openshift-console.apps.chi01.chi.pre.cl2.paas.cloudcenter.corp/"
+        },
+        {
+          "id": 4, 
+          "iconUrl": "/homepage/icons/icons8/openshift.png",
+          "label": "OpenShift Producción CL1",
+          "url": "https://console-openshift-console.apps.chi01.chi.pro.cl1.paas.cloudcenter.corp/"
+        },
+        {
+          "id": 5, 
+          "iconUrl": "/homepage/icons/icons8/openshift.png",
+          "label": "OpenShift Producción CL2",
+          "url": "https://console-openshift-console.apps.chi01.chi.pro.cl2.paas.cloudcenter.corp/"
+        },
+        {
+            "id": 6, 
+            "iconUrl": "/homepage/icons/icons8/tear-off-calendar.png",
+            "label": "Teams COE",
+            "url": "https://console-openshift-console.apps.chi01.chi.pro.cl2.paas.cloudcenter.corp/"
+        }        
+      ]
+    }
+  ]
+  
