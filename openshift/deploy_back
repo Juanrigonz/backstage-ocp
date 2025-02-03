@@ -1,73 +1,276 @@
-kind: Project
-apiVersion: project.openshift.io/v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: backstage2
-  uid: 5c677c5b-894e-47fd-9609-aac51d81e5c5
-  resourceVersion: '587321'
-  creationTimestamp: '2025-02-03T15:04:25Z'
-  labels:
-    kubernetes.io/metadata.name: backstage2
-    pod-security.kubernetes.io/audit: restricted
-    pod-security.kubernetes.io/audit-version: v1.24
-    pod-security.kubernetes.io/warn: restricted
-    pod-security.kubernetes.io/warn-version: v1.24
   annotations:
-    openshift.io/description: ''
-    openshift.io/display-name: ''
-    openshift.io/requester: kubeadmin
-    openshift.io/sa.scc.mcs: 's0:c26,c20'
-    openshift.io/sa.scc.supplemental-groups: 1000690000/10000
-    openshift.io/sa.scc.uid-range: 1000690000/10000
+    deployment.kubernetes.io/revision: '1'
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: backstage2
+  resourceVersion: '599443'
+  name: backstage2
+  uid: 378dacc8-5cee-4fc9-a7ca-3e9c9565f976
+  creationTimestamp: '2025-02-03T16:07:08Z'
+  generation: 3
   managedFields:
-    - manager: pod-security-admission-label-synchronization-controller
-      operation: Apply
-      apiVersion: v1
-      time: '2025-02-03T15:04:27Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            'f:pod-security.kubernetes.io/audit': {}
-            'f:pod-security.kubernetes.io/audit-version': {}
-            'f:pod-security.kubernetes.io/warn': {}
-            'f:pod-security.kubernetes.io/warn-version': {}
-    - manager: openshift-apiserver
+    - manager: Mozilla
       operation: Update
-      apiVersion: v1
-      time: '2025-02-03T15:04:25Z'
+      apiVersion: apps/v1
+      time: '2025-02-03T16:07:08Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
           'f:annotations':
             .: {}
-            'f:openshift.io/description': {}
-            'f:openshift.io/display-name': {}
-            'f:openshift.io/requester': {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
           'f:labels':
             .: {}
-            'f:kubernetes.io/metadata.name': {}
-    - manager: openshift-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2025-02-03T15:04:25Z'
-      fieldsType: FieldsV1
-      fieldsV1:
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:helm.sh/chart': {}
         'f:spec':
-          'f:finalizers': {}
-      subresource: finalize
-    - manager: cluster-policy-controller
+          'f:progressDeadlineSeconds': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:checksum/app-config': {}
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/component': {}
+                'f:app.kubernetes.io/instance': {}
+                'f:app.kubernetes.io/managed-by': {}
+                'f:app.kubernetes.io/name': {}
+                'f:helm.sh/chart': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"backstage-backend"}':
+                  'f:image': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:command': {}
+                  'f:env':
+                    'k:{"name":"POSTGRES_HOST"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_host"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_USER"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_user"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_app_baseUrl"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_client"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"APP_CONFIG_backend_cors_origin"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef': {}
+                    'k:{"name":"APP_CONFIG_backend_listen_port"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_password"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef': {}
+                    'k:{"name":"APP_CONFIG_backend_baseUrl"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_port"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":7007,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:serviceAccount': {}
+              'f:serviceAccountName': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: kube-controller-manager
       operation: Update
-      apiVersion: v1
-      time: '2025-02-03T15:04:27Z'
+      apiVersion: apps/v1
+      time: '2025-02-03T16:23:08Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
           'f:annotations':
-            'f:openshift.io/sa.scc.mcs': {}
-            'f:openshift.io/sa.scc.supplemental-groups': {}
-            'f:openshift.io/sa.scc.uid-range': {}
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: backstage2
+  labels:
+    app.kubernetes.io/component: backstage
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: backstage-2.3.0
 spec:
-  finalizers:
-    - kubernetes
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: backstage
+      app.kubernetes.io/instance: backstage
+      app.kubernetes.io/name: backstage
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: backstage
+        app.kubernetes.io/instance: backstage
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.3.0
+      annotations:
+        checksum/app-config: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: backstage-backend
+          command:
+            - node
+            - packages/backend
+          env:
+            - name: APP_CONFIG_backend_listen_port
+              value: '7007'
+            - name: POSTGRES_HOST
+              value: backstage-postgresql
+            - name: POSTGRES_PORT
+              value: '5432'
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+            - name: APP_CONFIG_app_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_cors_origin
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_database_client
+              value: pg
+            - name: APP_CONFIG_backend_database_connection_host
+              value: backstage-postgresql
+            - name: APP_CONFIG_backend_database_connection_port
+              value: '5432'
+            - name: APP_CONFIG_backend_database_connection_user
+              value: postgres
+            - name: APP_CONFIG_backend_database_connection_password
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+          ports:
+            - name: backend
+              containerPort: 7007
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: 'ghcr.io/janus-idp/redhat-backstage-build:latest'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: default
+      serviceAccount: default
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
 status:
-  phase: Active
+  observedGeneration: 3
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-02-03T16:07:19Z'
+      lastTransitionTime: '2025-02-03T16:07:08Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "backstage2-6ccf7f5584" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-02-03T16:23:08Z'
+      lastTransitionTime: '2025-02-03T16:23:08Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
