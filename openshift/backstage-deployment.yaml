@@ -1,0 +1,308 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '12'
+    meta.helm.sh/release-name: backstage
+    meta.helm.sh/release-namespace: backstage2
+  resourceVersion: '670187'
+  name: backstage2
+  uid: 378dacc8-5cee-4fc9-a7ca-3e9c9565f976
+  creationTimestamp: '2025-02-03T16:07:08Z'
+  generation: 15
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-02-04T02:48:01Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:helm.sh/chart': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:checksum/app-config': {}
+                'f:openshift.openshift.io/restartedAt': {}
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/component': {}
+                'f:app.kubernetes.io/instance': {}
+                'f:app.kubernetes.io/managed-by': {}
+                'f:app.kubernetes.io/name': {}
+                'f:helm.sh/chart': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"app-config"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"backstage-backend"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/app/app-config.yaml"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                      'f:subPath': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:command': {}
+                  'f:env':
+                    'k:{"name":"POSTGRES_HOST"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_host"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_USER"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_user"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_app_baseUrl"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_client"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"APP_CONFIG_backend_cors_origin"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef': {}
+                    'k:{"name":"APP_CONFIG_backend_listen_port"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_password"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef': {}
+                    'k:{"name":"APP_CONFIG_backend_baseUrl"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POSTGRES_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"APP_CONFIG_backend_database_connection_port"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:securityContext':
+                    .: {}
+                    'f:runAsUser': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":7007,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-02-04T02:48:07Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: backstage2
+  labels:
+    app.kubernetes.io/component: backstage
+    app.kubernetes.io/instance: backstage
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: backstage-2.3.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: backstage
+      app.kubernetes.io/instance: backstage
+      app.kubernetes.io/name: backstage
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: backstage
+        app.kubernetes.io/instance: backstage
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.3.0
+      annotations:
+        checksum/app-config: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+        openshift.openshift.io/restartedAt: '2025-02-04T02:48:01.373Z'
+    spec:
+      restartPolicy: Always
+      serviceAccountName: default
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: backstage-backend
+          command:
+            - node
+            - packages/backend
+          env:
+            - name: APP_CONFIG_backend_listen_port
+              value: '7007'
+            - name: POSTGRES_HOST
+              value: backstage-postgresql
+            - name: POSTGRES_PORT
+              value: '5432'
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+            - name: APP_CONFIG_app_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_baseUrl
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_cors_origin
+              value: 'https://backstage-ocp.apps-crc.testing'
+            - name: APP_CONFIG_backend_database_client
+              value: pg
+            - name: APP_CONFIG_backend_database_connection_host
+              value: backstage-postgresql
+            - name: APP_CONFIG_backend_database_connection_port
+              value: '5432'
+            - name: APP_CONFIG_backend_database_connection_user
+              value: postgres
+            - name: APP_CONFIG_backend_database_connection_password
+              valueFrom:
+                secretKeyRef:
+                  name: backstage-postgresql
+                  key: postgres-password
+          securityContext:
+            runAsUser: 1000
+          ports:
+            - name: backend
+              containerPort: 7007
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: app-config
+              mountPath: /app/app-config.yaml
+              subPath: app-config.yaml
+          terminationMessagePolicy: File
+          image: 'quay.io/juangonz/backstage:1.2.3'
+      serviceAccount: default
+      volumes:
+        - name: app-config
+          configMap:
+            name: app-config
+            defaultMode: 420
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 15
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-02-04T01:47:10Z'
+      lastTransitionTime: '2025-02-04T01:47:10Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-02-04T02:48:07Z'
+      lastTransitionTime: '2025-02-03T16:07:08Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "backstage2-74cb8577cd" has successfully progressed.
