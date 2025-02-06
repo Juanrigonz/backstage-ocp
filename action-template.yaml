@@ -1,0 +1,33 @@
+---
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: zip-dummy
+  title: My custom zip action
+  description: scaffolder action to zip the current context?
+spec:
+  owner: roadie
+  type: service
+
+  parameters:
+    - title: Zip
+      properties:
+        path:
+          title: Path
+          type: string
+          description: Workspace path to zip
+        outputPath:
+          title: Path
+          type: string
+          description: The path of the zip file
+
+  steps:
+    - id: zip
+      name: Zip
+      action: roadiehq:utils:zip
+      input:
+        path: ${{ parameters.path }}
+        outputPath: ${{ parameters.outputPath }}
+
+  output:
+    outputPath: ${{ steps.zip.output.path }}
