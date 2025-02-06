@@ -1,0 +1,30 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: sagar
+  title: Backstage automation
+  description: creating ec2 using backstage and terraform.
+spec:
+  owner: guest
+  type: service
+
+  parameters:
+    - title: backstage demo template
+      required:
+        - name
+      properties:
+        name:
+          type: string
+
+  steps:
+    - id: test
+      name: backstage-blog
+      action: debug:log
+      input:
+        message: 'Hello, ${{ parameters.name }}!'
+
+  output:
+    links:
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
